@@ -1,0 +1,5 @@
+﻿name;description;category;ring;stability
+Amazon Redshift;;DATASTORE;TRIAL;STABLE
+Druid;;DATASTORE;TRIAL;UP
+AWS Data Pipeline;;DATAMANAGEMENT;HOLD;STABLE
+Google Bigtable;;DATASTORE;ASSESS;DOWN
