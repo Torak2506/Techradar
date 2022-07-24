@@ -1,0 +1,5 @@
+package enums
+
+enum class Category {
+    DATASTORE,INFRASTRUCTURE,DATAMANAGEMENT,LANGUAGES
+}

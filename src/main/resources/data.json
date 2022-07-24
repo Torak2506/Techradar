@@ -1,0 +1,46 @@
+[
+  {
+    "name": "PostgreSQL",
+    "description": "",
+    "category": "DATASTORE",
+    "ring": "ADOPT",
+    "stability": "STABLE"
+  },
+
+  {
+    "name": "AWS S3",
+    "description": "",
+    "category": "DATASTORE",
+    "ring": "ADOPT",
+    "stability": "UP"
+  },
+
+  {
+    "name": "Docker",
+    "description": "",
+    "category": "INFRASTRUCTURE",
+    "ring": "ADOPT",
+    "stability": "DOWN"
+  },
+  {
+    "name": "Kotlin",
+    "description": "",
+    "category": "LANGUAGES",
+    "ring": "ADOPT",
+    "stability": "STABLE"
+  },
+  {
+  "name": "Haskell",
+  "description": "",
+  "category": "LANGUAGES",
+  "ring": "HOLD",
+  "stability": "DOWN"
+  },
+  {
+    "name": "AWS Lambda",
+    "description": "",
+    "category": "INFRASTRUCTURE",
+    "ring": "TRIAL",
+    "stability": "UP"
+  }
+]
