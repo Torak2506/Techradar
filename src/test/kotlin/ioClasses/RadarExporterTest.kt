@@ -1,17 +1,16 @@
 package ioClasses
 
-import dataClasses.Radar
+import dataClasses.Technology
+import dataClasses.generateRadar
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import java.io.File
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 
 internal class RadarExporterTest
 {
-    private val test = RadarExporter()
-    private val importer = RadarDataImporter()
 
-    @Test
-    fun exportPdfTest()
-    {
-        test.exportToPdf(Radar(importer.importFromJson("src/main/resources/data2.json"),""),"src/main/resources/")
-    }
 }

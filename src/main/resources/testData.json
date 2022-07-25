@@ -1,0 +1,30 @@
+[
+  {
+    "name":"Amazon Redshift",
+    "description":"",
+    "category":"DATASTORE",
+    "ring":"TRIAL",
+    "stability":"STABLE"
+  },
+  {
+    "name":"Druid",
+    "description":"",
+    "category":"DATASTORE",
+    "ring":"TRIAL",
+    "stability":"UP"
+  },
+  {
+    "name":"AWS Data Pipeline",
+    "description":"",
+    "category":"DATAMANAGEMENT",
+    "ring":"HOLD",
+    "stability":"STABLE"
+  },
+  {
+    "name":"Google Bigtable",
+    "description":"",
+    "category":"DATASTORE",
+    "ring":"ASSESS",
+    "stability":"DOWN"
+  }
+]
