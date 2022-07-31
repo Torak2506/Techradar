@@ -16,6 +16,7 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation("com.google.code.gson:gson:2.9.0")
     implementation("com.itextpdf:itextpdf:5.5.13.3")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")
     implementation("org.apache.pdfbox:pdfbox:2.0.26")
     testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.25")
 }

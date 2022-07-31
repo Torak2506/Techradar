@@ -21,9 +21,9 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 import kotlin.random.Random
 
-class RadarExporter: DataExporter {
+class RadarExporter(val radar: Radar): DataExporter<Radar> {
 
-    override fun exportToHtml(radar: Radar): String {
+    override fun exportToHtml(): String {
         val techs = radar.technologies.sorted()
         var dsList = "<div style=\"display:inline-block;width:150px\">"
         var inList = "<div style=\"display:inline-block;width:150px\">"
@@ -127,10 +127,11 @@ class RadarExporter: DataExporter {
                 "</body>\n" +
                 "</html>"
     }
-
-    override fun exportToPdf(radar: Radar, dirPath: String): File {
+    val DEFAULT_PATH = "F:/"
+    override fun exportToPdf(dirPath: String?): File {
+        val path = dirPath ?: DEFAULT_PATH
         val formater = DateTimeFormatter.ofPattern("HH-mm-ss")
-        val pdfFile = File("$dirPath/Radar " + LocalDate.now() + " " + LocalTime.now().format(formater) + ".pdf")
+        val pdfFile = File("$path/Radar " + LocalDate.now() + " " + LocalTime.now().format(formater) + ".pdf")
         val output = FileOutputStream(pdfFile)
         val doc = Document()
         val writer = PdfWriter.getInstance(doc, output)

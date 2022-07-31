@@ -1,36 +1,38 @@
 package ioClasses
 
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
 import dataClasses.Technology
 import enums.Category
 import enums.Ring
 import enums.Stability
 import interfaces.DataImporter
 import java.io.File
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import java.nio.charset.StandardCharsets.UTF_8
 
 class RadarDataImporter: DataImporter {
 
     override fun importFromCsv(csvPath: String): Set<Technology> {
-        val technologies = mutableSetOf<Technology>();
-        var file = File(csvPath)
-        var lines = file.readLines()
-        lines=lines.subList(1,lines.size)
-        lines.forEach { l ->
-            val line = l.split(';')
-
-            technologies.add(Technology(line[0],line[1], Category.valueOf(line[2].uppercase()), Ring.valueOf(line[3].uppercase()),
-                Stability.valueOf(line[4].uppercase())))
+        val technologies = mutableListOf<Technology>()
+        var file = File(csvPath).readLines(UTF_8).drop(1).forEach() {
+            val line = it.split(';')
+            technologies.add(
+                Technology(
+                    name = line[0],
+                    description = line[1],
+                    category = Category.valueOf(line[2].uppercase()),
+                    ring = Ring.valueOf(line[3].uppercase()),
+                    stability = Stability.valueOf(line[4].uppercase())
+                )
+            )
         }
-        technologies.forEach{i ->println(i) }
-        return technologies;
+        return technologies.toSet();
     }
 
     override fun importFromJson(json: String): Set<Technology> {
         val fileContent = File(json).bufferedReader().use { it.readText() }
-        val gson=Gson()
-        val typeT = object :TypeToken<Set<Technology>>(){}.type
-        val technologies: Set<Technology>  = gson.fromJson(fileContent, typeT)
+        val mapper = jacksonObjectMapper();
+        val technologies:Set<Technology> = mapper.readValue(fileContent)
         technologies.forEach{i ->println(i) }
         return technologies
     }
