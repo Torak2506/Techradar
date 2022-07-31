@@ -2,6 +2,7 @@ package ioClasses
 
 import assertk.assertThat
 import assertk.assertions.isEqualTo
+import dataClasses.Radar
 import dataClasses.Technology
 import dataClasses.generateRadar
 import enums.Category
@@ -18,7 +19,6 @@ import java.time.format.DateTimeFormatter
 
 internal class RadarDataImporterTest {
     private val testI: DataImporter = RadarDataImporter()
-    private val testE = RadarExporter()
 
     @Test
     fun importTest() {
@@ -49,7 +49,8 @@ internal class RadarDataImporterTest {
     fun exportPdfTest()
     {
         val imported: Set<Technology> = testI.importFromJson("src/main/resources/data2.json")
-        assertEquals(true,testE.exportToPdf(imported.generateRadar("Radar "+ LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss"))),"src/main/resources/").exists())
+        val testE = RadarExporter(Radar(imported,""))
+        assertEquals(true,testE.exportToPdf("src/main/resources/").exists())
     }
 
     @Test
@@ -57,7 +58,8 @@ internal class RadarDataImporterTest {
     {
         val formater = DateTimeFormatter.ofPattern("HH-mm-ss")
         val imported: Set<Technology> = testI.importFromJson("src/main/resources/data2.json")
-        val htmlString = testE.exportToHtml(imported.generateRadar("Radar "+ LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss"))))
+        val testE = RadarExporter(Radar(imported,""))
+        val htmlString = testE.exportToHtml()
         val htmlFile = File("src/main/resources/Radar " + LocalDate.now() + " " + LocalTime.now().format(formater) + ".html").writeText(htmlString)
     }
 }
