@@ -1,10 +1,10 @@
 [
 	{
-		"name":"Amazon Redshift",
+		"name":"AWS DynamoDB",
 		"description":"",
 		"category":"DATASTORE",
-		"ring":"TRIAL",
-		"stability":"STABLE"
+		"ring":"ADOPT",
+		"stability":"DOWN"
 	},
 	{
 		"name":"Druid",
@@ -14,6 +14,13 @@
 		"stability":"UP"
 	},
 	{
+		"name":"Google Bigtable",
+		"description":"",
+		"category":"DATASTORE",
+		"ring":"ASSESS",
+		"stability":"DOWN"
+	},
+	{
 		"name":"AWS Data Pipeline",
 		"description":"",
 		"category":"DATAMANAGEMENT",
@@ -21,11 +28,11 @@
 		"stability":"STABLE"
 	},
 	{
-		"name":"Google Bigtable",
+		"name":"Amazon Redshift",
 		"description":"",
 		"category":"DATASTORE",
-		"ring":"ASSESS",
-		"stability":"DOWN"
+		"ring":"TRIAL",
+		"stability":"STABLE"
 	},
 	{
 		"name":"RocksDB",
@@ -34,13 +41,7 @@
 		"ring":"ASSESS",
 		"stability":"STABLE"
 	},	
-	{
-		"name":"AWS DynamoDB",
-		"description":"",
-		"category":"DATASTORE",
-		"ring":"ADOPT",
-		"stability":"DOWN"
-	},
+
 	{
 		"name":"ActiveMQ",
 		"description":"",
